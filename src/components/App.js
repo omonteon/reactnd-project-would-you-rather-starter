@@ -26,4 +26,4 @@ class App extends Component {
   }
 }
 
-export default connect(state => state)(App)
+export default connect()(App)
