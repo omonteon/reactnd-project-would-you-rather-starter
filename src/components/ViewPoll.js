@@ -1,17 +1,7 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
-function Card({ title, children }) {
-  return <div className="card">
-    <div className="card-title">
-      {title}
-    </div>
-    <div className="card-content">
-      {children}
-    </div>
-  </div>;
-}
+import Card from './Card';
 
 class ViewPoll extends Component {
   render() {
@@ -22,8 +12,8 @@ class ViewPoll extends Component {
         <div className="view-poll-extract">
           <h4>Would you rather ?</h4>
           <p>...{question.optionOne.text}...</p>
-          <Link to={`/poll/${question.id}`}>
-            <button type="button">View Poll</button>
+          <Link to={`/questions/${question.id}`}>
+            <button type="button" className="btn btn-default">View Poll</button>
           </Link>
         </div>
       </div>
