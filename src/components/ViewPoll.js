@@ -6,7 +6,9 @@ function Card({ title, children }) {
     <div className="card-title">
       {title}
     </div>
-    {children}
+    <div className="card-content">
+      {children}
+    </div>
   </div>;
 }
 
@@ -14,17 +16,21 @@ class ViewPoll extends Component {
   render() {
     const { question, author } = this.props;
     return <Card title={`${author.name} asks:`}>
-      <img src={author.avatarURL} alt="User avatar" />
-      <h5>Would you rather ?</h5>
-      <p>...{question.optionOne.text}...</p>
-      <button type="button">View Poll</button>
+      <div className="view-poll">
+        <img src={author.avatarURL} alt="User avatar" />
+        <div className="view-poll-extract">
+          <h4>Would you rather ?</h4>
+          <p>...{question.optionOne.text}...</p>
+          <button type="button">View Poll</button>
+        </div>
+      </div>
     </Card>
   }
 }
 
 function mapStateToProps({ questions, users }, { id }) {
   const question = questions[id];
-  const author = users[question.author];  
+  const author = users[question.author];
   return {
     question,
     author

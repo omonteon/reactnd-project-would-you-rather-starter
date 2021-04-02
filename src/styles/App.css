@@ -1,0 +1,119 @@
+/* FOOTER */
+.footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  font-size: 0.8em;
+  opacity: 0.8;
+  padding: 0.8em;
+}
+
+/* POLLS COMPONENT  */
+.polls {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 500px;
+  margin-top: 20px;
+  border: 2px solid #a1a1a1;
+  border-radius: 3px;
+}
+
+.polls-header {
+  display: flex;
+  border-bottom: 2px solid #a1a1a1;   
+}
+
+.polls-header button {
+  width: 50%;
+  padding: 15px;
+  border: none;
+  background-color: white;
+  font-weight: bold;
+}
+
+.polls-header button:hover {
+  cursor: pointer;
+  background-color: #efefef;
+}
+
+.polls-header button:first-child {
+  border-right: 2px solid #a1a1a1;
+}
+
+.polls-header button.active {
+  background-color: #efefef;
+  color:cadetblue;
+  outline: none;
+}
+
+.polls-list {
+  padding: 15px;
+}
+
+.polls-list .card {
+  margin-bottom: 15px;
+}
+
+.polls-list .card:last-child {
+  margin-bottom: 0;
+}
+
+
+/* CARD COMPONENT */
+
+.card {
+  border: 2px solid #a1a1a1;
+  border-radius: 3px;
+}
+
+.card-title {
+  padding: 10px;
+  border-bottom: 2px solid #a5a5a5;
+  background-color: #f7f7f7;
+  font-weight: bold;
+}
+
+.card-content {
+  padding: 15px;
+}
+
+/* VIEW POLL COMPONENT */
+
+.view-poll {
+  display: flex;
+}
+
+.view-poll img {
+  width: 20%;
+  padding-right: 15px;
+  border-right: 1px solid #a5a5a5;
+}
+
+.view-poll-extract {
+  margin-left: 15px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.view-poll-extract h4 {
+  margin-top: 0;
+}
+
+.view-poll button {
+  width: 100%;
+  padding: 3px;
+  background-color: white;
+  border: 2px solid #009688;
+  color: #009688;
+  border-radius: 3px;
+  font-weight: bold;
+  transition: all 0.3s ease-in;
+}
+
+.view-poll button:hover {
+  background-color: #00aa9a;
+  color: white;
+  cursor: pointer;
+}

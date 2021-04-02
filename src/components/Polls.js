@@ -5,11 +5,11 @@ import ViewPoll from './ViewPoll';
 class Polls extends Component {
   render() {
     const { questions } = this.props;
-    return <>
+    return <div className="polls-list">
       {questions.map(questionId => {
         return <ViewPoll id={questionId} key={questionId} />
       })}
-    </>;
+    </div>;
   }
 }
 

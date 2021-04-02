@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { handleInitialData } from '../actions/shared';
 import Login from './Login';
 import Home from './Home';
+import '../styles/App.css';
 
 class App extends Component {
   componentDidMount() {
@@ -20,6 +21,7 @@ class App extends Component {
           {/* /poll/:id */}
           {/* /leaderboard */}
           {/* /new */}
+          <div className="footer">Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
         </div>
       </Router>
     );
