@@ -3,10 +3,12 @@ export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
 export const ANSWER_QUESTION = 'ANSWER_QUESTION'
 export const ADD_QUESTION = 'ADD_QUESTION'
 
-export function answerQuestion(question) {
+export function answerQuestion({ id, authedUser, selectedOption }) {
   return {
     type: ANSWER_QUESTION,
-    question,
+    id,
+    authedUser,
+    selectedOption
   }
 }
 
