@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { handleInitialData } from '../actions/shared';
 import Login from './Login';
-import Polls from './Polls';
+import Home from './Home';
 
 class App extends Component {
   componentDidMount() {
@@ -15,7 +15,7 @@ class App extends Component {
       <Router>
         <div className="App">
           {/* NAV */}
-          <Route path="/" exact component={Polls} />
+          <Route path="/" exact component={Home} />
           <Route path="/login" component={Login} />
           {/* /poll/:id */}
           {/* /leaderboard */}
