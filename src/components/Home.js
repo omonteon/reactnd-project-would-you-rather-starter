@@ -12,8 +12,20 @@ class Home extends Component {
     const { answered } = this.state;
     return (<div className="polls">
       <div className="polls-header">
-        <button type="button" onClick={() => this.handleSetAnswered(false)}>Unanswered questions</button>
-        <button type="button" onClick={() => this.handleSetAnswered(true)}>Answered questions</button>
+        <button
+          type="button"
+          className={answered ? '' : 'active'}
+          onClick={() => this.handleSetAnswered(false)}
+        >
+          Unanswered questions
+        </button>
+        <button
+          type="button"
+          className={answered ? 'active' : ''}
+          onClick={() => this.handleSetAnswered(true)}
+        >
+          Answered questions
+        </button>
       </div>
       <Polls answered={answered} />
     </div>);
