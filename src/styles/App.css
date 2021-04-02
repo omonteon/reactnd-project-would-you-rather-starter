@@ -101,19 +101,86 @@
   margin-top: 0;
 }
 
-.view-poll button {
+/* Button styles */
+
+.btn {
   width: 100%;
   padding: 3px;
-  background-color: white;
-  border: 2px solid #009688;
-  color: #009688;
   border-radius: 3px;
   font-weight: bold;
   transition: all 0.3s ease-in;
 }
 
-.view-poll button:hover {
+.btn:hover {
+  cursor: pointer;
+}
+
+.btn-default {
+  background-color: white;
+  border: 2px solid #009688;
+  color: #009688;
+}
+
+.btn-default:hover {
   background-color: #00aa9a;
   color: white;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 3px;
+  background-color: #009688;
+  border: 2px solid #009688;
+  color: white;
+  border-radius: 3px;
+  font-weight: bold;
+  transition: all 0.3s ease-in;
+}
+
+.btn-primary:hover {
+  background-color: #00aa9a;
   cursor: pointer;
+}
+
+/* POLL COMPONENT */
+
+.poll-card {
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.poll {
+  display: flex;
+}
+
+.poll img {
+  width: 20%;
+  padding-right: 15px;
+  border-right: 1px solid #a5a5a5;
+}
+
+.poll-questions {
+  margin-left: 15px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.poll-questions h3 {
+  margin-top: 0;
+}
+
+.poll-questions .question {
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.poll-questions .question:last-of-type {
+  margin-bottom: 15px;
+}
+
+.poll-questions .question > label {
+  margin-left: 5px;
 }
