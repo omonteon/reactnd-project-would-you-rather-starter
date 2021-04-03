@@ -1,5 +1,6 @@
 import { RECEIVE_QUESTIONS, ADD_QUESTION, ANSWER_QUESTION } from '../actions/questions';
 
+
 export default function questions(state = {}, action) {
   switch (action.type) {
     case RECEIVE_QUESTIONS:
@@ -21,7 +22,7 @@ export default function questions(state = {}, action) {
           ...state[action.qid],
           [action.answer]: {
             ...state[action.qid][action.answer],
-            votes: state[action.qid][action.answer].votes.concat(action.authedUser)
+            votes: state[action.qid][action.answer].votes.concat(action.authedUser) // TODO: Concat only if it does not exist already
           }
             
         }
