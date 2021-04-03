@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { handleSaveQuestionAnswer } from '../actions/questions';
 import Card from './Card';
 
 class Poll extends Component {
@@ -9,6 +9,16 @@ class Poll extends Component {
   }
   handleSetSelectedOption = (e) => {
     this.setState({ selectedOption: e.target.value });
+  }
+  handleSubmitQuestionAnswer = () => {
+    const { selectedOption } = this.state;
+    const { dispatch, authedUser, match } = this.props;
+    const { id } = match.params;
+    dispatch(handleSaveQuestionAnswer({
+      qid: id,
+      authedUser: authedUser.id,
+      answer: selectedOption
+    }))
   }
   render() {
     const { selectedOption } = this.state;
@@ -45,9 +55,7 @@ class Poll extends Component {
               />
               <label htmlFor="optionTwo">{question.optionTwo.text}</label>
             </div>
-            <Link to={`/poll/${question.id}`}>
-              <button type="button" className="btn btn-primary">Submit</button>
-            </Link>
+            <button type="button" className="btn btn-primary" onClick={this.handleSubmitQuestionAnswer}>Submit</button>
           </div>}
       </div>
     </Card>
@@ -55,11 +63,11 @@ class Poll extends Component {
 }
 
 function mapStateToProps({ questions, users, authedUser: authedUserId }, props) {
-  const { id } = props.match.params
+  const { id } = props.match.params;
   const authedUser = users[authedUserId];
   const question = questions[id];
   const author = question && question.author ? users[question.author] : {};
-  const answered = authedUser && authedUser.questions && authedUser.questions[id];
+  const answered = authedUser && authedUser.answers && authedUser.answers[id];
   return {
     question,
     author,
