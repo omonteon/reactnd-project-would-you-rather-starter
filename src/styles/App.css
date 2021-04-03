@@ -66,6 +66,8 @@
 .card {
   border: 2px solid #a1a1a1;
   border-radius: 3px;
+  display: flex;
+  flex-direction: column;
 }
 
 .card-title {
@@ -312,4 +314,70 @@
 
 .login-form .btn {
   padding: 6px;
+}
+
+/* LEADERBOARD COMPONENT */
+
+.leaderboard {
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.user-summary {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 2px solid #a1a1a1;
+  border-radius: 3px;
+}
+
+.user-summary img {
+  width: 20%;
+  padding-right: 15px;
+  border-right: 1px solid #a5a5a5;
+}
+
+.user-summary .questions-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 45%;
+  margin-left: 15px;
+  margin-right: 15px;
+  padding-right: 15px;
+  border-right: 1px solid #a5a5a5;
+}
+
+.user-summary .questions-info div:first-of-type {
+  padding-bottom: 5px;
+  border-bottom: 1px solid #a1a1a1;
+}
+
+.user-summary h4 {
+  margin-top: 0;
+}
+
+.card-score {
+  width: 20%;
+}
+
+.card-score .card-title {
+  text-align: center;
+}
+
+.card-score .card-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.card-score .card-content .score {
+  background-color: cadetblue;
+  padding: 10px 14px;
+  border-radius: 50%;
+  color: white;
+  line-height: 1;
 }
