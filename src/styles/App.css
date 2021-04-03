@@ -112,8 +112,19 @@
   transition: all 0.3s ease-in;
 }
 
+.btn:disabled {
+  border-color: gray;
+  background-color: gray;
+}
+
 .btn:hover {
   cursor: pointer;
+}
+
+.btn:disabled:hover {
+  cursor: not-allowed;
+  border-color: gray;
+  background-color: gray;
 }
 
 .btn-default {
@@ -268,5 +279,37 @@
 
 .add-question-form .btn {
   margin-top: 10px;
+  padding: 6px;
+}
+
+/* LOGIN COMPONENT */
+
+.card-login {
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.card-login .card-title {
+  text-align: center;
+}
+
+.card-login img {
+  width: 180px;
+  display: block;
+  margin: 0 auto;
+}
+
+.card-login h4 {
+  margin-bottom: 10px;
+}
+
+.login-form select {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.login-form .btn {
   padding: 6px;
 }
