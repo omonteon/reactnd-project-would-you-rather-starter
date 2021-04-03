@@ -1,4 +1,5 @@
 /* FOOTER */
+
 .footer {
   position: fixed;
   bottom: 0;
@@ -9,6 +10,7 @@
 }
 
 /* POLLS COMPONENT  */
+
 .polls {
   display: flex;
   flex-direction: column;
@@ -21,7 +23,7 @@
 
 .polls-header {
   display: flex;
-  border-bottom: 2px solid #a1a1a1;   
+  border-bottom: 2px solid #a1a1a1;
 }
 
 .polls-header button {
@@ -43,7 +45,7 @@
 
 .polls-header button.active {
   background-color: #efefef;
-  color:cadetblue;
+  color: cadetblue;
   outline: none;
 }
 
@@ -58,7 +60,6 @@
 .polls-list .card:last-child {
   margin-bottom: 0;
 }
-
 
 /* CARD COMPONENT */
 
@@ -198,10 +199,9 @@
   margin-bottom: 15px;
 }
 
-.poll-questions .question > label {
+.poll-questions .question>label {
   margin-left: 5px;
 }
-
 
 /* POLL RESULTS COMPONENT */
 
@@ -239,4 +239,34 @@
 .poll-option b {
   text-align: center;
   margin-bottom: 15px;
+}
+
+/* ADD QUESTION COMPONENT */
+
+.card-new-question {
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.card-new-question .card-title {
+  text-align: center;
+}
+
+.add-question-form h4 {
+  margin: 15px 0 5px 0;
+}
+
+.add-question-form input {
+  width: 100%;
+  padding: 5px;
+  border: 2px solid #cacaca;
+  border-radius: 3px;
+  box-sizing: border-box;
+  margin: 5px 0;
+}
+
+.add-question-form .btn {
+  margin-top: 10px;
+  padding: 6px;
 }
