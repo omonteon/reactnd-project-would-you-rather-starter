@@ -1,5 +1,5 @@
 
-import { saveQuestionAnswer } from '../utils/api';
+import { saveQuestionAnswer, saveQuestion } from '../utils/api';
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
 export const ANSWER_QUESTION = 'ANSWER_QUESTION'
@@ -29,10 +29,24 @@ export function handleSaveQuestionAnswer(info) {
 }
 
 
-export function addQuestion(question) {
+function addQuestion(question) {
   return {
     type: ADD_QUESTION,
     question,
+  }
+}
+
+export function handleSaveQuestion(info) {
+  return (dispatch) => {
+
+    return saveQuestion(info)
+    .then((question) => dispatch(addQuestion(question)))
+      .catch((e) => {
+        console.warn('Error in handleSaveQuestionAnswer: ', e)
+        // TODO: Implement "undo" action
+        // dispatch(addQuestion(info))
+        alert('The was an error saving your answer. Try again.')
+      })
   }
 }
 
