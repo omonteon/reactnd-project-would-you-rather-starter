@@ -5,6 +5,7 @@ import { handleInitialData } from '../actions/shared';
 import Login from './Login';
 import Home from './Home';
 import Poll from './Poll';
+import AddQuestion from './AddQuestion';
 import '../styles/App.css';
 
 class App extends Component {
@@ -20,9 +21,8 @@ class App extends Component {
           <Route path="/" exact component={Home} />
           <Route path="/login" component={Login} />
           <Route path="/questions/:id" component={Poll} />
-          {/* /poll/:id */}
+          <Route path="/add" component={AddQuestion} />
           {/* /leaderboard */}
-          {/* /new */}
           <div className="footer">Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
         </div>
       </Router>
