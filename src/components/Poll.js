@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import { handleSaveQuestionAnswer } from '../actions/questions';
 import Card from './Card';
+import PollResults from './PollResults';
 
 class Poll extends Component {
   state = {
@@ -30,7 +31,7 @@ class Poll extends Component {
       <div className="poll">
         <img src={author.avatarURL} alt="User avatar" />
         {answered
-          ? null
+          ? <PollResults question={question} authedUserId={authedUser.id} />
           : <div className="poll-questions">
             <h3>Would you rather ?</h3>
             <div className="question">
