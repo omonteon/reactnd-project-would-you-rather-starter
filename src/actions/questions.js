@@ -1,5 +1,6 @@
 
 import { saveQuestionAnswer, saveQuestion } from '../utils/api';
+import { showLoading, hideLoading } from 'react-redux-loading';
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
 export const ANSWER_QUESTION = 'ANSWER_QUESTION'
@@ -16,15 +17,11 @@ function answerQuestion({ authedUser, qid, answer }) {
 
 export function handleSaveQuestionAnswer(info) {
   return (dispatch) => {
+    dispatch(showLoading());
     dispatch(answerQuestion(info))
 
     return saveQuestionAnswer(info)
-      .catch((e) => {
-        console.warn('Error in handleSaveQuestionAnswer: ', e)
-        // TODO: Implement "undo" action
-        // dispatch(answerQuestion(info))
-        alert('The was an error saving your answer. Try again.')
-      })
+      .then(() => dispatch(hideLoading()));
   }
 }
 
@@ -36,17 +33,15 @@ function addQuestion(question) {
   }
 }
 
-export function handleSaveQuestion(info) {
+export function handleSaveQuestion(info, cb) {
   return (dispatch) => {
-
+    dispatch(showLoading());
     return saveQuestion(info)
-    .then((question) => dispatch(addQuestion(question)))
-      .catch((e) => {
-        console.warn('Error in handleSaveQuestionAnswer: ', e)
-        // TODO: Implement "undo" action
-        // dispatch(addQuestion(info))
-        alert('The was an error saving your answer. Try again.')
-      })
+      .then((question) => {
+        dispatch(addQuestion(question));
+        cb();
+        dispatch(hideLoading());
+      });
   }
 }
 
