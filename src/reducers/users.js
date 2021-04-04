@@ -24,7 +24,7 @@ export default function users(state = {}, action) {
         ...state,
         [action.question.author]: {
           ...state[action.question.author],
-          questions: state[action.question.author].questions.concat([action.question.id]) // TODO: Concat only if it does not exist already
+          questions: state[action.question.author].questions.concat([action.question.id])
         }
       }
     default:
