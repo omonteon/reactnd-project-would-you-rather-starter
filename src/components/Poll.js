@@ -72,7 +72,7 @@ function mapStateToProps({ questions, users, authedUser: authedUserId }, props) 
   return {
     question,
     author,
-    authedUser,
+    authedUser, // TODO: Not consistent to what authedUser is in the app (an id)
     answered
   }
 }
