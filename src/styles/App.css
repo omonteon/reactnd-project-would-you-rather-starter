@@ -1,4 +1,9 @@
-/* FOOTER */
+.container {
+  width: 500px;
+  margin: 0 auto;
+}
+
+/* Footer */
 
 .footer {
   position: fixed;
@@ -9,13 +14,89 @@
   padding: 0.8em;
 }
 
+/* Utilities */
+
+.hide {
+  visibility: hidden;
+}
+
+/* Button element */
+
+.btn {
+  width: 100%;
+  padding: 3px;
+  border-radius: 3px;
+  font-weight: bold;
+  transition: all 0.3s ease-in;
+}
+
+.btn:disabled {
+  border-color: gray;
+  background-color: gray;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.btn:disabled:hover {
+  cursor: not-allowed;
+  border-color: gray;
+  background-color: gray;
+}
+
+.btn-default {
+  background-color: white;
+  border: 2px solid #009688;
+  color: #009688;
+}
+
+.btn-default:hover {
+  background-color: #00aa9a;
+  color: white;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 3px;
+  background-color: #009688;
+  border: 2px solid #009688;
+  color: white;
+  border-radius: 3px;
+  font-weight: bold;
+  transition: all 0.3s ease-in;
+}
+
+.btn-primary:hover {
+  background-color: #00aa9a;
+  cursor: pointer;
+}
+
+/* Badge element */
+
+.badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f7f7f7;
+  padding: 2px 5px;
+  border-radius: 10px;
+  line-height: 1.5;
+}
+
+.badge-success {
+  background-color: cadetblue;
+  color: white;
+}
+
 /* POLLS COMPONENT  */
 
 .polls {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  width: 500px;
+  width: 100%;
+  box-sizing: border-box;
   margin-top: 20px;
   border: 2px solid #a1a1a1;
   border-radius: 3px;
@@ -104,79 +185,11 @@
   margin-top: 0;
 }
 
-/* Button styles */
-
-.btn {
-  width: 100%;
-  padding: 3px;
-  border-radius: 3px;
-  font-weight: bold;
-  transition: all 0.3s ease-in;
-}
-
-.btn:disabled {
-  border-color: gray;
-  background-color: gray;
-}
-
-.btn:hover {
-  cursor: pointer;
-}
-
-.btn:disabled:hover {
-  cursor: not-allowed;
-  border-color: gray;
-  background-color: gray;
-}
-
-.btn-default {
-  background-color: white;
-  border: 2px solid #009688;
-  color: #009688;
-}
-
-.btn-default:hover {
-  background-color: #00aa9a;
-  color: white;
-}
-
-.btn-primary {
-  width: 100%;
-  padding: 3px;
-  background-color: #009688;
-  border: 2px solid #009688;
-  color: white;
-  border-radius: 3px;
-  font-weight: bold;
-  transition: all 0.3s ease-in;
-}
-
-.btn-primary:hover {
-  background-color: #00aa9a;
-  cursor: pointer;
-}
-
-/* BADGE STYLES */
-
-.badge {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #f7f7f7;
-  padding: 2px 5px;
-  border-radius: 10px;
-  line-height: 1.5;
-}
-
-.badge-success {
-  background-color: cadetblue;
-  color: white;
-}
-
 /* POLL COMPONENT */
 
 .poll-card {
-  width: 500px;
+  width: 100%;
+  box-sizing: border-box;
   margin: 0 auto;
   margin-top: 20px;
 }
@@ -257,7 +270,8 @@
 /* ADD QUESTION COMPONENT */
 
 .card-new-question {
-  width: 500px;
+  width: 100%;
+  box-sizing: border-box;
   margin: 0 auto;
   margin-top: 20px;
 }
@@ -287,7 +301,8 @@
 /* LOGIN COMPONENT */
 
 .card-login {
-  width: 500px;
+  width: 100%;
+  box-sizing: border-box;
   margin: 0 auto;
   margin-top: 20px;
 }
@@ -319,7 +334,8 @@
 /* LEADERBOARD COMPONENT */
 
 .leaderboard {
-  width: 500px;
+  width: 100%;
+  box-sizing: border-box;
   margin: 0 auto;
   margin-top: 20px;
 }
@@ -447,16 +463,11 @@
   text-decoration: underline;
 }
 
-/* UTILITY */
-
-.hide {
-  visibility: hidden;
-}
-
 /* PAGE NOT FOUND (404) COMPONENT */
 
 .page-not-found {
-  width: 500px;
+  width: 100%;
+  box-sizing: border-box;
   margin: 0 auto;
   margin-top: 25px;
   padding: 15px;
