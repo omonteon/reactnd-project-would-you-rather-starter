@@ -381,3 +381,37 @@
   color: white;
   line-height: 1;
 }
+
+/* NAV COMPONENT */
+
+.nav {
+  padding: 15px 25px 0;
+  border-bottom: 3px solid #5f9ea0;
+  height: 51px;
+  box-sizing: border-box;
+}
+
+.nav ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav ul li:not(:first-child) {
+  margin-left: 10px;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.1em;
+  padding: 5px 10px;
+  display: block;
+}
+
+.nav ul li a:hover, .nav ul li a.active {
+  background-color: cadetblue;
+  color: white;
+  border-radius: 10px 10px 0 0;
+}
