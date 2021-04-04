@@ -1,13 +1,15 @@
 import { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { handleInitialData } from '../actions/shared';
+import PrivateRoute from './PrivateRoute';
 import Nav from './Nav';
 import Login from './Login';
 import Home from './Home';
 import Poll from './Poll';
 import AddQuestion from './AddQuestion';
 import Leaderboard from './Leaderboard';
+import PageNotFound from './PageNotFound';
 import '../styles/App.css';
 
 class App extends Component {
@@ -20,20 +22,24 @@ class App extends Component {
   componentDidUpdate(prevProps) {
     const { dispatch, authedUser } = this.props;
     if (!prevProps.authedUser && authedUser) {
-      dispatch(handleInitialData()); 
+      dispatch(handleInitialData());
     }
   }
   render() {
-    const { authedUserName } = this.props;
+    const { authedUser } = this.props;
     return (
       <Router>
         <div className="App">
-          <Nav authedUserName={authedUserName} />
-          <Route exact path="/" component={Home} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/questions/:id" component={Poll} />
-          <Route exact path="/add" component={AddQuestion} />
-          <Route exact path="/leaderboard" component={Leaderboard} />
+          {authedUser ? <Nav /> : null}
+          <Switch>
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/404" component={PageNotFound} />
+            <PrivateRoute exact path="/" component={Home} />
+            <PrivateRoute exact path="/questions/:id" redirectPath="/404" component={Poll} />
+            <PrivateRoute exact path="/add" component={AddQuestion} />
+            <PrivateRoute exact path="/leaderboard" component={Leaderboard} />
+            <Route render={() => <Redirect to="/404" />} />
+          </Switch>
           <div className="footer">Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
         </div>
       </Router>
