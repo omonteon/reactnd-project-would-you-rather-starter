@@ -15,7 +15,6 @@ function UserSummary({ user }) {
   <Card title="Score" className="card-score">
     <div className="score">
       {user.score}
-
     </div>
   </Card>
 </div>)
