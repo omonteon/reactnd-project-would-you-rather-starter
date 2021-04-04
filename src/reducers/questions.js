@@ -15,14 +15,13 @@ export default function questions(state = {}, action) {
         [question.id]: question,
       }
     case ANSWER_QUESTION:
-      // TODO: Refactor double squarebrackets
       return {
         ...state,
         [action.qid]: {
           ...state[action.qid],
           [action.answer]: {
             ...state[action.qid][action.answer],
-            votes: state[action.qid][action.answer].votes.concat(action.authedUser) // TODO: Concat only if it does not exist already
+            votes: state[action.qid][action.answer].votes.concat(action.authedUser)
           }
             
         }

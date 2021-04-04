@@ -21,7 +21,7 @@ function mapStateToProps({ authedUser, users, questions }, { answered }) {
       ? Object.keys(currentUser.answers)
         .sort(byTimestamp)
       : Object.keys(questions)
-        .filter(id => Object.keys(currentUser.answers).every(aId => aId !== id)) // TODO: O(N^2) algorithm, it may be a way to improve it.
+        .filter(id => Object.keys(currentUser.answers).every(aId => aId !== id))
         .sort(byTimestamp)
   };
 }
