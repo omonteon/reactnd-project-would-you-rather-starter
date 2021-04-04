@@ -1,10 +1,21 @@
 # Would You Rather Project
 
-This is the starter code for the final assessment project for Udacity's React & Redux course.
+This is the final assessment project for Udacity's React & Redux Fundamentals course. 
+In Summary, this is a web application where you can create and/or answer polls.
+Depending on how many polls a user has created/answered, a score is determined for the leaderboard.
+There are 4 main sections:
 
-The `_DATA.js` file represents a fake database and methods that let you access the data. The only thing you need to edit in the ` _DATA.js` file is the value of `avatarURL`. Each user should have an avatar, so you’ll need to add the path to each user’s avatar.
+* Home
+* Add a new poll
+* Leaderboard
+* Login/Sign in
 
-Using the provided starter code, you'll build a React/Redux front end for the application. We recommend using the [Create React App](https://github.com/facebook/create-react-app) to bootstrap the project.
+## Installing / Getting started
+
+To get started developing right away:
+
+* install all project dependencies with `npm install`
+* start the development server with `npm start`
 
 ## Data
 
@@ -171,3 +182,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Contributing
+
+If you'd like to contribute, please fork the repository and use a feature branch. Pull requests are warmly welcome.
+
+## Licensing
+
+The code in this project is licensed under MIT license.
