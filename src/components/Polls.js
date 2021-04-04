@@ -6,9 +6,9 @@ class Polls extends Component {
   render() {
     const { questions } = this.props;
     return <div className="polls-list">
-      {questions.map(questionId => {
+      {questions.length > 0 ? questions.map(questionId => {
         return <ViewPoll id={questionId} key={questionId} />
-      })}
+      }) : 'There are no more questions...'}
     </div>;
   }
 }
