@@ -385,6 +385,8 @@
 /* NAV COMPONENT */
 
 .nav {
+  display: flex;
+  justify-content: center;
   padding: 15px 25px 0;
   border-bottom: 3px solid #5f9ea0;
   height: 51px;
@@ -414,4 +416,35 @@
   background-color: cadetblue;
   color: white;
   border-radius: 10px 10px 0 0;
+}
+
+.auth-info {
+  display: flex;
+  align-items: center;
+  margin-left: 150px;
+}
+
+.auth-info img {
+  width: 1.5em;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+.auth-info a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.1em;
+  padding: 5px 10px;
+  display: block;
+  margin-left: 15px;
+}
+
+.auth-info a:hover {
+  text-decoration: underline;
+}
+
+/* UTILITY */
+
+.hide {
+  visibility: hidden;
 }
