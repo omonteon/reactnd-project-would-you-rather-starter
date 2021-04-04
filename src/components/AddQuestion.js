@@ -22,10 +22,11 @@ class AddQuestion extends Component {
       optionOneText,
       optionTwoText,
       author: authedUser
-    }));
-    // TODO: Maybe redirect until response from API is received
-    this.setState({ toHome: true });
+    }, this.redirectToHome));
+
+    
   }
+  redirectToHome = () => this.setState({ toHome: true });
   render() {
     const { optionOneText, optionTwoText, toHome } = this.state;
     if (toHome === true) {
@@ -50,7 +51,14 @@ class AddQuestion extends Component {
           value={optionTwoText}
           onChange={this.handleOptionTextChange}
         />
-        <button type="button" onClick={this.handleSubmitQuestion} className="btn btn-primary">Submit</button>
+        <button
+          type="button"
+          onClick={this.handleSubmitQuestion}
+          className="btn btn-primary"
+          disabled={optionOneText === '' || optionTwoText === ''}
+        >
+          Submit
+          </button>
       </div>
     </Card>)
   }
