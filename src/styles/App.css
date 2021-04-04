@@ -376,10 +376,14 @@
 
 .card-score .card-content .score {
   background-color: cadetblue;
-  padding: 10px 14px;
-  border-radius: 50%;
+  width: 35px;
+  height: 35px;
   color: white;
   line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
 }
 
 /* NAV COMPONENT */
