@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { handleInitialData } from '../actions/shared';
+import LoadingBar from 'react-redux-loading'
 import PrivateRoute from './PrivateRoute';
 import Nav from './Nav';
 import Login from './Login';
@@ -30,6 +31,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
+          <LoadingBar />
           {authedUser ? <Nav /> : null}
           <Switch>
             <Route exact path="/login" component={Login} />
