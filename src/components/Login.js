@@ -26,7 +26,6 @@ class Login extends Component {
   }
   render() {
     const { username, toPrivateRoute } = this.state;
-    console.log(this.props);
     if (toPrivateRoute) {
       return <Redirect to={toPrivateRoute} />
     }
