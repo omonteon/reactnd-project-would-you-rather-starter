@@ -8,21 +8,27 @@ import reactReduxLogo from '../assets/react-redux-logo.png';
 class Login extends Component {
   state = {
     username: '',
-    toHome: false
+    toPrivateRoute: ''
   }
   handleUsernameChange = (event) => {
     this.setState({username: event.target.value})
   }
   handleSignIn = () => {
     const { username } = this.state;
-    const { dispatch } = this.props;
+    const { dispatch, location } = this.props;
     dispatch(setAuthedUser(username));
-    this.setState({ toHome: true });
+    localStorage.setItem('authedUser', username);
+    if (location && location.state && location.state.from) {
+      this.setState({ toPrivateRoute: location.state.from.pathname})
+    } else {
+      this.setState({ toPrivateRoute: '/' });
+    }
   }
   render() {
-    const { username, toHome } = this.state;
-    if (toHome === true) {
-      return <Redirect to='/' />
+    const { username, toPrivateRoute } = this.state;
+    console.log(this.props);
+    if (toPrivateRoute) {
+      return <Redirect to={toPrivateRoute} />
     }
     return (<Card title="Welcome to the Would You Rather App!" className="card-login">
       <img src={reactReduxLogo} alt="app logo" />
