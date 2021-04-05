@@ -3,7 +3,7 @@ import PollOption from './PollOption';
 // CODE REVIEW QUESTION: 
 // Is it ok to pass this info as props ? 
 // or should this component be connected to the store and get the info from there ?
-function PollResults({ authedUserId, question }) {
+function PollResults({ authedUser, question }) {
   const { optionOne, optionTwo } = question;
   const totalVotes = optionOne.votes.length + optionTwo.votes.length;
   return <div className="poll-results">
@@ -11,11 +11,11 @@ function PollResults({ authedUserId, question }) {
     <PollOption
       option={optionOne}
       totalVotes={totalVotes}
-      votedOption={optionOne.votes.find(vote => vote === authedUserId)} />
+      votedOption={optionOne.votes.find(vote => vote === authedUser)} />
     <PollOption
       option={optionTwo}
       totalVotes={totalVotes}
-      votedOption={optionTwo.votes.find(vote => vote === authedUserId)} />
+      votedOption={optionTwo.votes.find(vote => vote === authedUser)} />
   </div>;
 }
 

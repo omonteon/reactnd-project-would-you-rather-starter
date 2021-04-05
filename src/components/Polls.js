@@ -14,7 +14,7 @@ class Polls extends Component {
 }
 
 function mapStateToProps({ authedUser, users, questions }, { answered }) {
-  const currentUser = users[authedUser];
+  const currentUser = users[authedUser] || { answers: [] };
   const byTimestamp = (a, b) => questions[b].timestamp - questions[a].timestamp;
   return {
     questions: answered

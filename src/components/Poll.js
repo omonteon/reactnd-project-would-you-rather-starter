@@ -18,24 +18,24 @@ class Poll extends Component {
     const { id } = match.params;
     dispatch(handleSaveQuestionAnswer({
       qid: id,
-      authedUser: authedUser.id,
+      authedUser: authedUser,
       answer: selectedOption
     }))
   }
   render() {
     const { selectedOption } = this.state;
     const { question, author, authedUser, answered } = this.props;
+    if (!authedUser) {
+      return <h2>Loading...</h2>;
+    }
     if (authedUser && !question) {
       return <Redirect to='/404' />
-    }
-    if (!question) {
-      return <h2>Loading...</h2>;
     }
     return <Card title={`${author.name} asks:`} className="poll-card">
       <div className="poll">
         <img src={author.avatarURL} alt="User avatar" />
         {answered
-          ? <PollResults question={question} authedUserId={authedUser.id} />
+          ? <PollResults question={question} authedUser={authedUser} />
           : <div className="poll-questions">
             <h3>Would you rather ?</h3>
             <div className="question">
@@ -67,12 +67,12 @@ class Poll extends Component {
   }
 }
 
-function mapStateToProps({ questions, users, authedUser: authedUserId }, props) {
+function mapStateToProps({ questions, users, authedUser }, props) {
   const { id } = props.match.params;
-  const authedUser = users[authedUserId];
+  const user = users[authedUser];
   const question = questions[id];
   const author = question && question.author ? users[question.author] : '';
-  const answered = authedUser && authedUser.answers && authedUser.answers[id];
+  const answered = user && user.answers && user.answers[id];
   return {
     question,
     author,

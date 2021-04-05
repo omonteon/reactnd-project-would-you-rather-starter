@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import { connect } from 'react-redux';
 import { setAuthedUser } from '../actions/authedUser';
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink, Link, withRouter } from 'react-router-dom'
 
 class Nav extends Component {
   handleLogout = () => {
@@ -10,7 +10,10 @@ class Nav extends Component {
     dispatch(setAuthedUser(null))
   }
   render() {
-    const { authedUserName, authedUserAvatarURL } = this.props;
+    const { authedUserName, authedUserAvatarURL, location } = this.props;
+    if (location.pathname.includes('login')) {
+      return null;
+    }
     return (
       <nav className='nav'>
         <ul>
@@ -48,4 +51,4 @@ function mapStateToProps({ users, authedUser }) {
   }
 }
 
-export default connect(mapStateToProps)(Nav)
+export default withRouter(connect(mapStateToProps)(Nav))

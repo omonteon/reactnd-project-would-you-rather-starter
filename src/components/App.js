@@ -15,25 +15,24 @@ import '../styles/App.css';
 
 class App extends Component {
   componentDidMount() {
-    const { dispatch } = this.props;   
-    const authedUser = localStorage.getItem('authedUser'); 
+    const { handleInitialData } = this.props;
+    const authedUser = localStorage.getItem('authedUser');
     if (authedUser) {
-      dispatch(handleInitialData());
+      handleInitialData();
     }
   }
   componentDidUpdate(prevProps) {
-    const { dispatch, authedUser } = this.props;
+    const { authedUser, handleInitialData } = this.props;
     if (!prevProps.authedUser && authedUser) {
-      dispatch(handleInitialData());
+      handleInitialData();
     }
   }
   render() {
-    const { authedUser } = this.props;
     return (
       <Router>
         <>
           <LoadingBar />
-          {authedUser ? <Nav /> : null}
+          <Nav />
           <div className="container">
             <Switch>
               <Route exact path="/login" component={Login} />
@@ -58,4 +57,4 @@ function mapStateToProps({ authedUser }) {
   }
 }
 
-export default connect(mapStateToProps)(App)
+export default connect(mapStateToProps, { handleInitialData })(App)
