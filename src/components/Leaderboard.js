@@ -29,7 +29,7 @@ function mapStateToProps({ users }) {
           createdQuestions: user.questions.length,
           score: Object.keys(user.answers).length + user.questions.length
         }
-      }) // CODE REVIEW QUESTION: Is it ok to do this? OR should I pass the array of ids and get the user inside the component that needs it ?
+      })
       .sort(byScore)
   }
 }
