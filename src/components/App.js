@@ -15,7 +15,8 @@ import '../styles/App.css';
 
 class App extends Component {
   componentDidMount() {
-    const { dispatch, authedUser } = this.props;
+    const { dispatch } = this.props;   
+    const authedUser = localStorage.getItem('authedUser'); 
     if (authedUser) {
       dispatch(handleInitialData());
     }
@@ -38,7 +39,7 @@ class App extends Component {
               <Route exact path="/login" component={Login} />
               <Route exact path="/404" component={PageNotFound} />
               <PrivateRoute exact path="/" component={Home} />
-              <PrivateRoute exact path="/questions/:id" redirectPath="/404" component={Poll} />
+              <PrivateRoute exact path="/questions/:id" component={Poll} />
               <PrivateRoute exact path="/add" component={AddQuestion} />
               <PrivateRoute exact path="/leaderboard" component={Leaderboard} />
               <Route render={() => <Redirect to="/404" />} />

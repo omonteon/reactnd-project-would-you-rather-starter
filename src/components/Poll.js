@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { handleSaveQuestionAnswer } from '../actions/questions';
 import Card from './Card';
 import PollResults from './PollResults';
@@ -24,8 +25,11 @@ class Poll extends Component {
   render() {
     const { selectedOption } = this.state;
     const { question, author, authedUser, answered } = this.props;
-    if (!authedUser) {
-      return 'Loading...'
+    if (authedUser && !question) {
+      return <Redirect to='/404' />
+    }
+    if (!question) {
+      return <h2>Loading...</h2>;
     }
     return <Card title={`${author.name} asks:`} className="poll-card">
       <div className="poll">
@@ -67,12 +71,12 @@ function mapStateToProps({ questions, users, authedUser: authedUserId }, props) 
   const { id } = props.match.params;
   const authedUser = users[authedUserId];
   const question = questions[id];
-  const author = question && question.author ? users[question.author] : {};
+  const author = question && question.author ? users[question.author] : '';
   const answered = authedUser && authedUser.answers && authedUser.answers[id];
   return {
     question,
     author,
-    authedUser, // TODO: Not consistent to what authedUser is in the app (an id)
+    authedUser,
     answered
   }
 }

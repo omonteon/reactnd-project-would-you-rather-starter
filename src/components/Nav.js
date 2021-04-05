@@ -6,6 +6,7 @@ import { NavLink, Link } from 'react-router-dom'
 class Nav extends Component {
   handleLogout = () => {
     const { dispatch } = this.props;
+    localStorage.removeItem('authedUser');
     dispatch(setAuthedUser(null))
   }
   render() {
