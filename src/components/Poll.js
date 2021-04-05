@@ -14,13 +14,13 @@ class Poll extends Component {
   }
   handleSubmitQuestionAnswer = () => {
     const { selectedOption } = this.state;
-    const { dispatch, authedUser, match } = this.props;
+    const { handleSaveQuestionAnswer, authedUser, match } = this.props;
     const { id } = match.params;
-    dispatch(handleSaveQuestionAnswer({
+    handleSaveQuestionAnswer({
       qid: id,
       authedUser: authedUser,
       answer: selectedOption
-    }))
+    });
   }
   render() {
     const { selectedOption } = this.state;
@@ -81,4 +81,4 @@ function mapStateToProps({ questions, users, authedUser }, props) {
   }
 }
 
-export default connect(mapStateToProps)(Poll);
+export default connect(mapStateToProps, { handleSaveQuestionAnswer })(Poll);

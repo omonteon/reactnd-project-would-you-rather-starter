@@ -15,8 +15,8 @@ class Login extends Component {
   }
   handleSignIn = () => {
     const { username } = this.state;
-    const { dispatch, location } = this.props;
-    dispatch(setAuthedUser(username));
+    const { setAuthedUser, location } = this.props;
+    setAuthedUser(username);
     localStorage.setItem('authedUser', username);
     if (location && location.state && location.state.from) {
       this.setState({ toPrivateRoute: location.state.from.pathname})
@@ -45,4 +45,4 @@ class Login extends Component {
   }
 }
 
-export default connect()(Login);
+export default connect(null, { setAuthedUser })(Login);

@@ -5,9 +5,9 @@ import { NavLink, Link, withRouter } from 'react-router-dom'
 
 class Nav extends Component {
   handleLogout = () => {
-    const { dispatch } = this.props;
+    const { setAuthedUser } = this.props;
     localStorage.removeItem('authedUser');
-    dispatch(setAuthedUser(null))
+    setAuthedUser(null);
   }
   render() {
     const { authedUserName, authedUserAvatarURL, location } = this.props;
@@ -51,4 +51,4 @@ function mapStateToProps({ users, authedUser }) {
   }
 }
 
-export default withRouter(connect(mapStateToProps)(Nav))
+export default withRouter(connect(mapStateToProps, { setAuthedUser })(Nav))

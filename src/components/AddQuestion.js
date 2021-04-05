@@ -17,14 +17,12 @@ class AddQuestion extends Component {
   }
   handleSubmitQuestion = () => {
     const { optionOneText, optionTwoText } = this.state;
-    const { dispatch, authedUser } = this.props;
-    dispatch(handleSaveQuestion({
+    const { handleSaveQuestion, authedUser } = this.props;
+    handleSaveQuestion({
       optionOneText,
       optionTwoText,
       author: authedUser
-    }, this.redirectToHome));
-
-    
+    }, this.redirectToHome);
   }
   redirectToHome = () => this.setState({ toHome: true });
   render() {
@@ -70,4 +68,4 @@ function mapStateToProps({ authedUser }) {
   }
 }
 
-export default connect(mapStateToProps)(AddQuestion);
+export default connect(mapStateToProps, { handleSaveQuestion })(AddQuestion);
